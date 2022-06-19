@@ -4,13 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUploadAlt,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
     faSignOut,
     faSpinner,
     faUser,
@@ -25,6 +23,8 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import Menu from '~/Components/Popper/Menu';
+import { SearchIcon, UploadIcon } from '~/Components/Icons';
+import Image from '~/Components/Image'
 
 const cx = classNames.bind(styles);
 
@@ -135,7 +135,7 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -145,7 +145,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUploadAlt} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -157,10 +157,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
-                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e99846f00ab6702d7716ba8d72a98d7a~c5_100x100.jpeg?x-expires=1655694000&x-signature=GqCg5SCt20X2JxmaPgubM5bEL4o%3D"
+                            <Image
+                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e99846f00ab6702d7716ba8d72a98d7a~c5_100x100.jpeg?x-expires=1655694000&x-signature=GqCg5SCt20X2JxmaPgubM5bEL4o%3Dasd"
                                 className={cx('user-avatar')}
                                 alt="Nguyen Van A"
+                                // fallback='https://static.fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png'
                             />
                         ) : (
                             <button className={cx('more-btn')}>
