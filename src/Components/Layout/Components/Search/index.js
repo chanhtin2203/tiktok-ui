@@ -34,7 +34,7 @@ function Search() {
             setLoading(true);
 
             const result = await searchServices.search(debounced);
-            
+
             setSearchResult(result);
 
             setLoading(false);
@@ -54,8 +54,9 @@ function Search() {
     };
 
     const handlespace = (e) => {
-        if (e.target.value[0] !== ' ') {
-            setSearchValue(e.target.value);
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
         }
     };
 
@@ -93,7 +94,7 @@ function Search() {
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>
